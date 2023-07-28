@@ -12,12 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
-
-
 describe('RegistrationComponent', () => {
-  
-
-
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
   let userService: UserService;
@@ -84,7 +79,6 @@ describe('RegistrationComponent', () => {
     component.registrationForm.controls['bio'].setValue("");
 
     expect(component.registrationForm.valid).toBeFalsy();
-
     expect(registerUser).not.toHaveBeenCalled();
   });
 
@@ -101,7 +95,6 @@ describe('RegistrationComponent', () => {
     });
 
     component.submitRegisterButton();
-
     expect(navigateSpy).toHaveBeenCalledWith(['/profile']);
   });
 
@@ -120,7 +113,6 @@ describe('RegistrationComponent', () => {
     });
 
     component.submitRegisterButton();
-
     expect(navigateSpy).not.toHaveBeenCalled();
   });
 

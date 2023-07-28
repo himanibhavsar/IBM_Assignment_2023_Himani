@@ -7,19 +7,18 @@ import { ErrorHandlingService } from '../services/error-handling.service';
 interface RegistrationResponse {
   success: boolean;
 }
-
 interface RegistrationForm {
   name: string;
   email: string;
   password: string;
   bio: string;
 }
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+  
 export class RegistrationComponent implements OnInit {
   hidePassword = true;
   registrationForm!: FormGroup;
@@ -30,7 +29,6 @@ export class RegistrationComponent implements OnInit {
     private userService: UserService,
     private errorHandlingService: ErrorHandlingService,
   ) { }
-
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
@@ -39,7 +37,6 @@ export class RegistrationComponent implements OnInit {
       bio: ['', Validators.required]
     });
   }
-
   submitRegisterButton(): void {
     if (this.registrationForm.valid) {
       const formData: RegistrationForm = this.registrationForm.value;
@@ -55,9 +52,7 @@ export class RegistrationComponent implements OnInit {
       );
     }
   }
-
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
-
 }

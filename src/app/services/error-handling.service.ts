@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class ErrorHandlingService {
 
   constructor() { }
-
   handleError(message: string, error: any): void {
     console.error(message, error);
   }
