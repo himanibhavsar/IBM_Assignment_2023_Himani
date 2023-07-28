@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "tslint:recommended",
+        "tslint-config-prettier"
+    ],
+    "rules": {
+        // Add other TSLint rules here as needed
+    },
+    "linterOptions": {
+        "exclude": [
+            "node_modules",
+            "dist",
+            "e2e"
+        ]
+    }
+}

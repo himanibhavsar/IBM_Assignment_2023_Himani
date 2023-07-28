@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    <span>Registration</span>
+</mat-toolbar>
+<mat-card class="register-card">
+    <mat-card-content>
+        <form class="my-form" [formGroup]="registrationForm" (ngSubmit)="submitRegisterButton()">
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" class="form-control" formControlName="name">
+                <mat-error *ngIf="registrationForm.get('name')?.errors && registrationForm.get('name')?.touched">Name
+                    is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email">
+                <mat-error *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" class="form-control" formControlName="password" />
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{ hidePassword ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <mat-error *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+                Password must be at least 8 characters
+            </mat-error>
+        </mat-form-field>
+
+
+            <mat-form-field class="full-width">
+                <mat-label>Bio</mat-label>
+                <textarea matInput class="form-control" formControlName="bio"></textarea>
+                <mat-error *ngIf="registrationForm.get('bio')?.invalid && registrationForm.get('bio')?.touched">Bio is
+                    required</mat-error>
+            </mat-form-field>
+
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="registrationForm.invalid">Register</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
